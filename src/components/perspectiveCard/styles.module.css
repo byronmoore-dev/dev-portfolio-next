@@ -30,7 +30,6 @@
   align-items: center;
   justify-content: space-around;
   font-weight: 700;
-  text-transform: uppercase;
   transition: all 0.5s ease-out;
   transform: rotateX(0deg) rotateY(0deg);
   transform-origin: center center 0px;
