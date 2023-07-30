@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable react-hooks/exhaustive-deps */
 import classNames from "classnames";
 import { useEffect, useRef, useState } from "react";

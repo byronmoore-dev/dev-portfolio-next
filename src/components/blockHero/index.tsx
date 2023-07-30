@@ -1,7 +1,10 @@
+"use client";
+
 /* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
 import PerspectiveCard from "../perspectiveCard";
-import { useState } from "react";
+import { WordCycle } from "./fadeText";
+import DownArrow from "@/assets/arrow";
 
 const coreAnimate = {
   hidden: { scale: 0 },
@@ -42,29 +45,11 @@ function CornerBlocks() {
   );
 }
 
-export default function HeroBlock() {
+export default function HeroBlock({ handleClick }: { handleClick: () => void }) {
   return (
     <main className="relative flex h-screen w-screen flex-col items-center justify-center">
-      {/* 
-      // Links 
-      <motion.div
-        initial={{ x: -100, display: "none" }}
-        animate={{ x: 0, display: "flex" }}
-        transition={{ delay: 1.05 }}
-        className="absolute left-6 bottom-20 text-lg font-black text-neutral-700/20 gap-2 flex flex-col"
-      >
-        <p className="">IN</p>
-        <p>LI</p>
-        <p>GH</p>
-      </motion.div>
-      */}
-
-      {/*
-        // Old Layout
-        <p className="absolute top-6 right-6 text-beige-500 font-bold text-xl">dev.</p>
-        <p className="absolute bottom-6 right-6 text-beige-500 font-bold text-xl">creator.</p>
-        <p className="absolute bottom-6 left-6 text-beige-500 font-bold text-xl">designer.</p>
-      */}
+      {/*Noise Filter */}
+      <div className="fixed z-10 opacity-50 left-0 top-0 noise w-full h-screen pointer-events-none bg-white/10" />
 
       {/* Blurred purple */}
       <motion.div
@@ -80,10 +65,25 @@ export default function HeroBlock() {
         className="absolute bg-teal-300/20 h-56 aspect-square left-20 bottom-40 rounded-full blur-[80px]"
       />
 
+      <div className="absolute top-6 px-8 flex w-full gap-8 ">
+        <div className="flex flex-col">
+          <div className="mb-1 h-1 w-48 bg-beige-300 rounded-xl" />
+          <p className="font-medium text-beige-300 brightness-[60%] text-sm font-base">Byron Moore</p>
+        </div>
+        <div className="flex flex-col ml-auto">
+          <div className="mb-1 h-1 w-48 bg-beige-300 rounded-xl" />
+          <p className="font-medium text-beige-300 brightness-[60%] text-sm font-base">Projects</p>
+        </div>
+        <div className="flex flex-col">
+          <div className="mb-1 h-1 w-48 bg-beige-300 rounded-xl" />
+          <p className="font-medium text-beige-300 brightness-[60%] text-sm font-base">Photography</p>
+        </div>
+      </div>
+
       <div className="absolute bottom-6 left-6 flex gap-4 [&>div]:shadow-md">
         <CornerBlocks />
       </div>
-      <div className="absolute top-6 right-6 flex gap-4 flex-row-reverse [&>div]:shadow-md">
+      <div className="absolute bottom-6 right-6 flex gap-4 flex-row-reverse [&>div]:shadow-md">
         <CornerBlocks />
       </div>
 
@@ -91,8 +91,11 @@ export default function HeroBlock() {
         initial={{ scale: 0, y: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.15, delay: 1 }}
-        className={`absolute bottom-4 left-1/2 -translate-x-1/2 bg-neutral-300 h-8 aspect-square rounded-xl`}
-      />
+        onClick={() => handleClick()}
+        className={`absolute bottom-4 left-1/2 -translate-x-1/2 h-8 aspect-square rounded-xl`}
+      >
+        <DownArrow className="fill-beige-300/90 brightness-75 animate-bounce cursor-pointer" />
+      </motion.div>
 
       <PerspectiveCard>
         <motion.div
@@ -102,11 +105,8 @@ export default function HeroBlock() {
           className="relative h-60 rounded-2xl aspect-square bg-beige-300 mr-[18px] p-4 shadow-md [&>div]:shadow-md"
         >
           {/*Inside */}
-          <motion.section className="z-10 w-full h-full bg-beige-100 rounded-lg flex flex-col justify-center overflow-hidden p-4">
-            <p className="font-bold text-neutral-600 xl:text-xl -mb-2">Hey, I'm Byron</p>
-            <p className="text-neutral-600 font-medium text-xl -mb-2 mt-auto">dev.</p>
-            <p className="text-neutral-600 font-medium text-xl -mb-2">creator.</p>
-            <p className="text-neutral-600 font-medium text-xl">designer.</p>
+          <motion.section className="z-10 w-full h-full bg-white/60 rounded-lg flex flex-col justify-center overflow-hidden p-4">
+            <WordCycle words={["dev.", "creator.", "innovator.", "designer."]} />
           </motion.section>
 
           {/* Left Side */}
