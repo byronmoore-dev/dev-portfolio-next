@@ -1,19 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import { Metadata } from "next";
-import GiftIcon from "@/assets/gift";
-import NexuzIcon from "@/assets/profile";
 import HeroBlock from "@/components/blockHero";
 import "@/styles/globals.css";
-import Image from "next/image";
 import Script from "next/script";
 import React, { useRef } from "react";
 import ProjectsBlock from "@/components/blockProjects";
 import SkillsBlock from "@/components/blockSkills";
-
-export const metadata: Metadata = {
-  title: "Portfolio",
-};
 
 export default function Page() {
   const projectRef = useRef<HTMLDivElement>(null);
@@ -47,8 +39,6 @@ export default function Page() {
 
         <SkillsBlock ref={skillsRef} />
         <ProjectsBlock ref={projectRef} />
-
-
       </main>
     </>
   );
