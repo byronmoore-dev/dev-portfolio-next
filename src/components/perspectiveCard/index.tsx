@@ -1,7 +1,6 @@
 "use client";
 import classNames from "classnames";
 import styles from "./styles.module.css";
-import { useEffect, useRef } from "react";
 
 const PerspectiveCard = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -52,11 +52,11 @@ const ProjectCard = ({ project, i, view }: { project: any; i: number; view: bool
   );
 };
 
-export default function ProjectsBlock({ ref }: { ref: React.RefObject<HTMLDivElement> }) {
+export default function ProjectsBlock() {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div className="flex flex-col w-full justify-between mx-auto gap-8 pb-60 bg-white/90" ref={ref}>
+    <div className="flex flex-col w-full justify-between mx-auto gap-8 pb-60 bg-white/90">
       <InView
         as="div"
         onChange={(inView, entry) => {
@@ -66,7 +66,7 @@ export default function ProjectsBlock({ ref }: { ref: React.RefObject<HTMLDivEle
         rootMargin="0px"
         threshold={0.2}
       >
-        <div className="relative w-full pt-24 pb-48 flex flex-col justify-center bg-beige-300/80 z-0">
+        <div className="relative w-full pt-24 pb-48 flex flex-col justify-center bg-beige-200/80 z-0">
           <motion.h1
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}

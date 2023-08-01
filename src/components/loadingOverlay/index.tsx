@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimate } from "framer-motion";
 import HeartSVG from "@/assets/heart";
 
-const LoadingOverlay = () => {
+const LoadingOverlay2 = () => {
   const [scope, animate] = useAnimate();
 
   return (
@@ -88,4 +88,4 @@ const LoadingOverlay = () => {
   );
 };
 
-export default LoadingOverlay;
+export default LoadingOverlay2;

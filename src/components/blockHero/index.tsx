@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import PerspectiveCard from "../perspectiveCard";
 import { WordCycle } from "./fadeText";
 import DownArrow from "@/assets/arrow";
+import CircleAnim from "../AnimCircles";
 
 const coreAnimate = {
   hidden: { scale: 0 },
@@ -17,33 +18,6 @@ const coreAnimate = {
 const wave1 = { delay: 0.6, duration: 0.05 };
 const wave2 = { delay: 0.65, duration: 0.09 };
 const wave3 = { delay: 0.69, duration: 0.12 };
-
-function CornerBlocks() {
-  const increment = 0.1;
-  let blockTime = { delay: wave2.delay, duration: wave2.duration };
-  const itemCount = Array(5).fill(1);
-
-  const updateDelay = () => {
-    blockTime.delay += increment;
-    return blockTime.delay;
-  };
-
-  return (
-    <>
-      {itemCount.map((_, index) => {
-        return (
-          <motion.div
-            key={index}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: blockTime.duration, delay: updateDelay() }}
-            className={`bg-beige-300 h-6 aspect-square rounded-full`}
-          />
-        );
-      })}
-    </>
-  );
-}
 
 export default function HeroBlock({ handleClick }: { handleClick: () => void }) {
   return (
@@ -80,11 +54,11 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-6 flex gap-4 [&>div]:shadow-md">
-        <CornerBlocks />
+      <div className="absolute bottom-6 left-6 flex md:flex-row flex-col-reverse gap-4 [&>div]:shadow-md">
+        <CircleAnim count={5} anim={wave2} />
       </div>
-      <div className="absolute bottom-6 right-6 flex gap-4 flex-row-reverse [&>div]:shadow-md">
-        <CornerBlocks />
+      <div className="absolute bottom-6 right-6 flex md:flex-row-reverse flex-col-reverse gap-4 [&>div]:shadow-md">
+        <CircleAnim count={5} anim={wave2} />
       </div>
 
       <motion.div
@@ -102,7 +76,7 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
           variants={coreAnimate}
           initial="hidden"
           animate="show"
-          className="relative h-60 rounded-2xl aspect-square bg-beige-300 mr-[18px] p-4 shadow-md [&>div]:shadow-md"
+          className="relative h-20 md:h-60 rounded-2xl aspect-square bg-beige-300 mr-[52px]  md:mr-[18px] p-4 shadow-md [&>div]:shadow-md"
         >
           {/*Inside */}
           <motion.section className="z-10 w-full h-full bg-white/60 rounded-lg flex flex-col justify-center overflow-hidden p-4">
@@ -121,14 +95,14 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
             animate={{ scale: 1, translateY: "-50%" }}
             transition={wave1}
             style={{ originX: 0.5, originY: 0 }}
-            className="absolute bg-beige-300 h-16 aspect-square -left-20 top-[calc(50%+5rem)] rounded-xl"
+            className="absolute hidden md:block bg-beige-300 h-16 aspect-square -left-20 top-[calc(50%+5rem)] rounded-xl"
           />
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1, translateY: "-50%" }}
             transition={wave1}
             style={{ originX: 0.5, originY: 0 }}
-            className="absolute bg-beige-300 h-16 aspect-square -left-20 top-[calc(50%-5rem)] rounded-xl"
+            className="absolute hidden md:block bg-beige-300 h-16 aspect-square -left-20 top-[calc(50%-5rem)] rounded-xl"
           />
           <motion.div
             initial={{ scale: 0 }}
@@ -162,14 +136,14 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
             animate={{ scale: 1, translateY: "-50%" }}
             transition={wave1}
             style={{ originX: 0, originY: 0 }}
-            className="absolute bg-beige-300 h-16 aspect-square -right-20 top-[calc(50%+5rem)] rounded-xl"
+            className="absolute hidden md:block bg-beige-300 h-16 aspect-square -right-20 top-[calc(50%+5rem)] rounded-xl"
           />
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1, translateY: "-50%" }}
             transition={wave1}
             style={{ originX: 0, originY: 0 }}
-            className="absolute bg-beige-300 h-16 aspect-square -right-20 top-[calc(50%-5rem)] rounded-xl"
+            className="absolute hidden md:block bg-beige-300 h-16 aspect-square -right-20 top-[calc(50%-5rem)] rounded-xl"
           />
           <motion.div
             initial={{ scale: 0 }}
@@ -269,25 +243,25 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={wave3}
-            className="absolute bg-beige-300 h-8 aspect-square -bottom-11 -right-11 rounded-xl"
+            className="absolute bg-beige-100 md:bg-beige-300 h-8 aspect-square -bottom-16 -right-14 md:-bottom-11 md:-right-11 rounded-xl"
           />
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={wave3}
-            className="absolute bg-beige-300 h-8 aspect-square -top-11 -right-11 rounded-xl"
+            className="absolute bg-beige-100 md:bg-beige-300 h-8 aspect-square -top-16 -right-14 md:-top-11 md:-right-11 rounded-xl"
           />
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={wave3}
-            className="absolute bg-beige-300 h-8 aspect-square -bottom-11 -left-11 rounded-xl"
+            className="absolute bg-beige-100 md:bg-beige-300 h-8 aspect-square -bottom-16 -left-14 md:-bottom-11 md:-left-11 rounded-xl"
           />
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={wave3}
-            className="absolute bg-beige-300 h-8 aspect-square -top-11 -left-11 rounded-xl"
+            className="absolute bg-beige-100 md:bg-beige-300 h-8 aspect-square -top-16 -left-14 md:-top-11 md:-left-11 rounded-xl"
           />
         </motion.div>
       </PerspectiveCard>

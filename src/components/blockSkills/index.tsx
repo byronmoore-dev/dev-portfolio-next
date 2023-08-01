@@ -4,8 +4,16 @@ import React, { forwardRef, useState, Ref } from "react";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import data from "@/assets/data";
+import Image from "next/image";
 
-const SkillCard = ({ skill, i }: { skill: string; i: number }) => {
+type SkillProps = {
+  name: string;
+  logo: string;
+  size: "xs" | "sm" | "md" | "lg";
+};
+
+const SkillCard = ({ skill, i }: { skill: SkillProps; i: number }) => {
+  const [isHover, setIsHover] = useState<boolean>(false);
   const [entered, setEntered] = useState(false);
   return (
     <InView
@@ -21,9 +29,30 @@ const SkillCard = ({ skill, i }: { skill: string; i: number }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: entered ? 1 : 0, transition: { delay: 0.5 + i * 0.05 } }}
         viewport={{ once: true }}
-        className="flex flex-col justify-center items-center shadow-md w-full aspect-[9/5] p-2 bg-beige-200/50 rounded-2xl border-[1.5px] border-beige-300/80"
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        className="relative flex flex-col justify-center items-center w-full aspect-square md:aspect-[9/3]"
       >
-        <p className="text-beige-800 text-sm font-bold text-center font-base leading-5">{skill}</p>
+        <motion.div
+          animate={{ y: isHover ? -10 : 0, opacity: isHover ? 0 : 1, transition: { delay: isHover ? 0 : 0.15, duration: 0.2 } }}
+          className="absolute h-full w-full flex justify-center items-center"
+        >
+          <Image
+            src={skill.logo}
+            height="100"
+            width="100"
+            alt={`${skill.name} logo`}
+            className={`${skill.size == "xs" ? "w-36 md:w-32 h-auto" : ""} ${skill.size == "sm" ? "w-18 md:w-16 h-auto" : ""} ${
+              skill.size == "md" ? "w-14 md:w-[52px] h-auto" : ""
+            } ${skill.size == "lg" ? "w-12 md:w-9 h-auto" : ""}`}
+          />
+        </motion.div>
+        <motion.div
+          animate={{ y: !isHover ? -10 : 0, opacity: !isHover ? 0 : 1, transition: { delay: !isHover ? 0 : 0.15, duration: 0.2 } }}
+          className="absolute h-full w-full flex justify-center items-center"
+        >
+          <p className="text-beige-800 text-lg font-medium text-center font-base leading-5">{skill.name}</p>
+        </motion.div>
       </motion.li>
     </InView>
   );
@@ -32,35 +61,24 @@ const SkillCard = ({ skill, i }: { skill: string; i: number }) => {
 const SkillsBlock = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <div className="w-full pt-32 pb-48" ref={ref}>
-      <div className="w-full relative max-w-3xl mx-auto rounded-2xl px-20 py-4 mb-4 flex flex-col justify-center  z-0">
-        <motion.h1
-          initial={{ x: -50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.25 }}
-          viewport={{ once: true }}
-          className="text-3xl font-semibold text-beige-800  text-center font-head"
-        >
-          Hi, I'm Byron. Nice to meet you.
-        </motion.h1>
-        <motion.p
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.28, duration: 0.25 }}
-          viewport={{ once: true }}
-          className="text-center max-w-xl mx-auto text-beige-800 text-lg mt-4 font-base font-medium"
-        >
-          As a developer and designer, I transform concepts into realities. Here are the skills I employ to bring ideas to life...
-        </motion.p>
-      </div>
+      <motion.h1
+        initial={{ x: -50, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.25 }}
+        viewport={{ once: true }}
+        className="w-full text-3xl font-semibold text-beige-800 text-center font-head mb-10"
+      >
+        Here's how I cook up products.
+      </motion.h1>
 
       <motion.ul
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="grid grid-cols-2 px-6 max-w-md sm:max-w-xl sm:grid-cols-3 lg:grid-cols-3 lg:max-w-[800px] mx-auto gap-8"
+        className="grid grid-cols-2 px-6 sm:max-w-xl sm:grid-cols-3 lg:grid-cols-3 lg:max-w-[800px] max-w-[85%] mx-auto md:gap-8"
       >
-        {data.skills.map((skill, index) => (
-          <SkillCard key={skill} skill={skill} i={index} />
+        {data.skills.map((skill: any, index: number) => (
+          <SkillCard key={skill.name} skill={skill} i={index} />
         ))}
       </motion.ul>
     </div>
