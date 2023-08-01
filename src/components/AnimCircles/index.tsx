@@ -6,7 +6,7 @@ type AnimProps = {
   duration: number;
 };
 
-function CircleAnim({ count, anim }: { count: number; anim: AnimProps }) {
+const CircleAnim = ({ count, anim }: { count: number; anim: AnimProps }) => {
   const increment = 0.1;
   let blockTime = { delay: anim.delay, duration: anim.duration };
   const itemCount = Array(count).fill(1);
@@ -32,6 +32,6 @@ function CircleAnim({ count, anim }: { count: number; anim: AnimProps }) {
       })}
     </>
   );
-}
+};
 
 export default CircleAnim;

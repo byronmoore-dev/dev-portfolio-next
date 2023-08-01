@@ -2,11 +2,11 @@
 import { motion } from "framer-motion";
 import PerspectiveCard from "./perspectiveCard";
 import DownArrow from "@/assets/arrow";
-import CircleAnim from "../animCircles";
 import MobileAnim from "./mobileAnim";
 import DesktopAnim from "./desktopAnim";
 import { wave2 } from "@/assets/animConstants";
 import { use100vh } from "react-div-100vh";
+import CircleAnim from "../animCircles";
 
 export default function HeroBlock({ handleClick }: { handleClick: () => void }) {
   const mobileHeight = use100vh();
