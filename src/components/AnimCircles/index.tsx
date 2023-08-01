@@ -26,7 +26,7 @@ function CircleAnim({ count, anim }: { count: number; anim: AnimProps }) {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: blockTime.duration, delay: updateDelay() }}
-            className={`bg-beige-300 h-6 aspect-square rounded-full`}
+            className={`aspect-square h-4 rounded-full bg-beige-300 md:h-6`}
           />
         );
       })}

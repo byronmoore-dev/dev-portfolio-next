@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import data from "@/assets/data.js";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -21,19 +21,25 @@ const ProjectCard = ({ project, i, view }: { project: any; i: number; view: bool
       viewport={{ once: true }}
       onMouseEnter={() => handleSetHover()}
       onMouseLeave={() => setIsHover(false)}
-      className={`relative cursor-default hover:scale-[101%] flex flex-col justify-center items-center shadow-md w-[90%] mx-auto md:w-full aspect-auto md:aspect-[9/5] p-10 rounded-2xl bg-white border-[1.5px] duration-200 border-beige-700/40`}
+      className={`relative mx-auto flex aspect-auto w-[90%] cursor-default flex-col items-center justify-center rounded-2xl border-[1.5px] border-beige-700/40 bg-white p-10 shadow-md duration-200 hover:scale-[101%] md:aspect-[9/5] md:w-full`}
     >
-      <h4 className="text-2xl font-medium text-black/80 font-head text-center">{project.name}</h4>
-      <p className="text-black text-sm mb-8 leading-5 mt-2 text-center font-base">{project.desc}</p>
-      <motion.div animate={{ y: isHover ? -10 : 0, opacity: isHover ? 0 : 1 }} className="absolute bottom-3">
-        <p className="font-base font-light px-2 py-1 text-sm bg-gray-50">{project.status}</p>
+      <h4 className="text-center font-head text-2xl font-medium text-black/80">{project.name}</h4>
+      <p className="mb-8 mt-2 text-center font-base text-sm leading-5 text-black">{project.desc}</p>
+      <motion.div
+        animate={{ y: isHover ? -10 : 0, opacity: isHover ? 0 : 1 }}
+        className="absolute bottom-3"
+      >
+        <p className="bg-gray-50 px-2 py-1 font-base text-sm font-light">{project.status}</p>
       </motion.div>
-      <motion.div animate={{ y: !isHover ? 10 : 0, opacity: !isHover ? 0 : 1 }} className="absolute bottom-5 flex gap-3">
+      <motion.div
+        animate={{ y: !isHover ? 10 : 0, opacity: !isHover ? 0 : 1 }}
+        className="absolute bottom-5 flex gap-3"
+      >
         {project.url && (
           <a
             href={project.url}
             target="new_blank"
-            className="z-10 px-3 py-1 bg-beige-300 text-beige-700 font-bold rounded font-base text-xs hover:bg-beige-700 hover:text-white duration-200"
+            className="z-10 rounded bg-beige-300 px-3 py-1 font-base text-xs font-bold text-beige-700 duration-200 hover:bg-beige-700 hover:text-white"
           >
             site
           </a>
@@ -42,7 +48,7 @@ const ProjectCard = ({ project, i, view }: { project: any; i: number; view: bool
           <a
             href={project.github}
             target="new_blank"
-            className="z-10 px-3 py-1 bg-beige-300 text-beige-700 font-bold rounded font-base text-xs hover:bg-beige-700 hover:text-white duration-200"
+            className="z-10 rounded bg-beige-300 px-3 py-1 font-base text-xs font-bold text-beige-700 duration-200 hover:bg-beige-700 hover:text-white"
           >
             github
           </a>
@@ -52,11 +58,11 @@ const ProjectCard = ({ project, i, view }: { project: any; i: number; view: bool
   );
 };
 
-export default function ProjectsBlock() {
+const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div className="flex flex-col w-full justify-between mx-auto gap-8 pb-60 bg-white/90">
+    <div className="mx-auto flex w-full flex-col justify-between gap-8 bg-white/90 pb-60" ref={ref}>
       <InView
         as="div"
         onChange={(inView, entry) => {
@@ -66,13 +72,13 @@ export default function ProjectsBlock() {
         rootMargin="0px"
         threshold={0.2}
       >
-        <div className="relative w-full pt-24 pb-48 flex flex-col justify-center bg-beige-200/80 z-0">
+        <div className="relative z-0 flex w-full flex-col justify-center bg-beige-200/80 pb-48 pt-24">
           <motion.h1
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.25 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl w-full font-semibold text-black  text-center font-head"
+            className="w-full text-center font-head text-2xl font-semibold  text-black md:text-3xl"
           >
             My Startup Projects
           </motion.h1>
@@ -81,21 +87,21 @@ export default function ProjectsBlock() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.25 }}
             viewport={{ once: true }}
-            className="text-center max-w-xl mx-auto text-black/80 text-lg mt-4 font-base font-medium"
+            className="mx-auto mt-4 max-w-xl text-center font-base text-lg font-medium text-black/80"
           >
-            I really love making digital stuff. From the first design sketch to the thrill of going live, it's all a blast. Below are some of my
-            favorites!
+            I really love making digital stuff. From the first design sketch to the thrill of going
+            live, it's all a blast. Below are some of my favorites!
           </motion.p>
 
-          <div className="w-2 h-20 rounded-md absolute left-10 top-10 bg-beige-300" />
-          <div className="w-2 h-20 rounded-md absolute right-10 bottom-10 bg-beige-300" />
+          <div className="absolute left-10 top-10 h-20 w-2 rounded-md bg-beige-300" />
+          <div className="absolute bottom-10 right-10 h-20 w-2 rounded-md bg-beige-300" />
         </div>
       </InView>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-3 w-full mx-auto gap-6 max-w-[1300px] -mt-40 z-10"
+        className="z-10 mx-auto -mt-40 grid w-full max-w-[1300px] grid-cols-1 gap-6 md:grid-cols-3"
       >
         {data.projects.map((project, index) => (
           <ProjectCard key={project.name} project={project} i={index} view={entered} />
@@ -103,4 +109,8 @@ export default function ProjectsBlock() {
       </motion.div>
     </div>
   );
-}
+});
+
+ProjectsBlock.displayName = "ProjectsBlock";
+
+export default ProjectsBlock;
