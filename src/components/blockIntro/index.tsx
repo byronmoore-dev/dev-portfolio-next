@@ -3,7 +3,7 @@
 import "@/styles/globals.css";
 import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
-import CircleAnim from "../animCircles";
+import CircleAnim from "@/components/animCircles";
 
 const DotAnims = () => {
   return (

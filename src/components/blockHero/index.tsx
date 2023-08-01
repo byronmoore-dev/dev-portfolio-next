@@ -6,7 +6,7 @@ import MobileAnim from "./mobileAnim";
 import DesktopAnim from "./desktopAnim";
 import { wave2 } from "@/assets/animConstants";
 import { use100vh } from "react-div-100vh";
-import CircleAnim from "../animCircles";
+import CircleAnim from "@/components/animCircles";
 
 export default function HeroBlock({ handleClick }: { handleClick: () => void }) {
   const mobileHeight = use100vh();
