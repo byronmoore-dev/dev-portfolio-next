@@ -3,23 +3,23 @@
 import "@/styles/globals.css";
 import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
-import CircleAnim from "@/components/animCircles";
+import AnimatedCircles from "@/components/animatedCircles";
 
 const DotAnims = () => {
   return (
     <>
       <div className="absolute bottom-[18%] right-[calc(50%+80px)] flex translate-x-1/2 rotate-45 flex-col gap-4 [&>div]:shadow-md">
-        <CircleAnim count={5} anim={{ duration: 0.1, delay: 0.4 }} />
+        <AnimatedCircles count={5} anim={{ duration: 0.1, delay: 0.4 }} />
       </div>
 
       <div className="absolute bottom-[18%] left-5 right-[calc(50%-80px)] flex translate-x-1/2 -rotate-45 flex-col gap-4 [&>div]:shadow-md">
-        <CircleAnim count={5} anim={{ duration: 0.1, delay: 0.4 }} />
+        <AnimatedCircles count={5} anim={{ duration: 0.1, delay: 0.4 }} />
       </div>
       <div className="absolute right-[calc(50%-80px)] top-[18%] flex translate-x-1/2 rotate-45 flex-col-reverse gap-4 [&>div]:shadow-md">
-        <CircleAnim count={5} anim={{ duration: 0.1, delay: 0.4 }} />
+        <AnimatedCircles count={5} anim={{ duration: 0.1, delay: 0.4 }} />
       </div>
       <div className="absolute right-[calc(50%+80px)] top-[18%] flex translate-x-1/2 -rotate-45 flex-col-reverse gap-4 [&>div]:shadow-md">
-        <CircleAnim count={5} anim={{ duration: 0.1, delay: 0.4 }} />
+        <AnimatedCircles count={5} anim={{ duration: 0.1, delay: 0.4 }} />
       </div>
     </>
   );

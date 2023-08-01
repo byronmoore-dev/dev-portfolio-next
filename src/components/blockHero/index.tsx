@@ -6,7 +6,7 @@ import MobileAnim from "./mobileAnim";
 import DesktopAnim from "./desktopAnim";
 import { wave2 } from "@/assets/animConstants";
 import { use100vh } from "react-div-100vh";
-import CircleAnim from "@/components/animCircles";
+import AnimatedCircles from "@/components/animatedCircles";
 
 export default function HeroBlock({ handleClick }: { handleClick: () => void }) {
   const mobileHeight = use100vh();
@@ -34,10 +34,10 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
       />
 
       <div className="absolute bottom-6 left-6 hidden flex-col-reverse gap-4 md:flex md:flex-row [&>div]:shadow-md">
-        <CircleAnim count={5} anim={wave2} />
+        <AnimatedCircles count={5} anim={wave2} />
       </div>
       <div className="absolute bottom-6 right-6 hidden flex-col-reverse gap-4 md:flex md:flex-row-reverse [&>div]:shadow-md">
-        <CircleAnim count={5} anim={wave2} />
+        <AnimatedCircles count={5} anim={wave2} />
       </div>
 
       <motion.div
