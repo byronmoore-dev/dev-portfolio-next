@@ -16,8 +16,6 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
         "h-[" + mobileHeight + "px]"
       }`}
     >
-      {/*Noise Filter */}
-      <div className="noise pointer-events-none fixed left-0 top-0 z-10 h-screen w-full bg-white/10 opacity-50" />
 
       {/* Blurred purple */}
       <motion.div

@@ -40,7 +40,10 @@ export default function Page() {
             `,
         }}
       />
-      <main className="flex min-h-screen w-full flex-col items-center overflow-x-hidden bg-beige-100/60">
+      <main className="flex min-h-screen w-full flex-col items-center overflow-x-hidden bg-beige-100">
+        {/*Noise Filter */}
+        <div className="noise pointer-events-none fixed left-0 top-0 z-10 h-screen w-full bg-white/10 opacity-50" />
+
         <Header ref={headerRef} />
         <HeroBlock handleClick={handleClick} />
         <IntroBlock ref={introRef} />

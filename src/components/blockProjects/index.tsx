@@ -21,7 +21,7 @@ const ProjectCard = ({ project, i, view }: { project: any; i: number; view: bool
       viewport={{ once: true }}
       onMouseEnter={() => handleSetHover()}
       onMouseLeave={() => setIsHover(false)}
-      className={`relative mx-auto flex aspect-auto w-[90%] cursor-default flex-col items-center justify-center rounded-2xl border-[1.5px] border-beige-700/40 bg-white p-10 shadow-md duration-200 hover:scale-[101%] md:aspect-[9/5] md:w-full`}
+      className={`relative mx-auto flex aspect-auto w-[90%] cursor-default flex-col items-center justify-center rounded-2xl border-[1.5px] border-beige-500/10 bg-white p-10 shadow-lg duration-200 hover:scale-[101%] md:aspect-[9/5] md:w-full`}
     >
       <h4 className="text-center font-head text-2xl font-medium text-black/80">{project.name}</h4>
       <p className="mb-8 mt-2 text-center font-base text-sm leading-5 text-black">{project.desc}</p>
@@ -62,7 +62,7 @@ const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div className="mx-auto flex w-full flex-col justify-between gap-8 bg-white/90 pb-60" ref={ref}>
+    <div className="mx-auto flex w-full flex-col justify-between gap-8 pb-60" ref={ref}>
       <InView
         as="div"
         onChange={(inView, entry) => {
@@ -72,13 +72,13 @@ const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
         rootMargin="0px"
         threshold={0.2}
       >
-        <div className="relative z-0 flex w-full flex-col justify-center bg-beige-200/80 pb-48 pt-24">
+        <div className="relative z-10 flex w-full flex-col justify-center bg-beige-600 pb-48 pt-24 saturate-[90%]">
           <motion.h1
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.25 }}
             viewport={{ once: true }}
-            className="w-full text-center font-head text-2xl font-semibold  text-black md:text-3xl"
+            className="w-full text-center font-head text-2xl font-bold text-white md:text-3xl"
           >
             My Startup Projects
           </motion.h1>
@@ -87,7 +87,7 @@ const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.25 }}
             viewport={{ once: true }}
-            className="mx-auto mt-4 max-w-xl text-center font-base text-lg font-medium text-black/80"
+            className="mx-auto mt-4 max-w-xl text-center font-base text-lg font-medium text-white"
           >
             I really love making digital stuff. From the first design sketch to the thrill of going
             live, it's all a blast. Below are some of my favorites!
@@ -101,7 +101,7 @@ const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="z-10 mx-auto -mt-40 grid w-full max-w-[1300px] grid-cols-1 gap-6 md:grid-cols-3"
+        className="z-10 mx-auto -mt-40 grid w-full max-w-[1300px] grid-cols-1 gap-8 md:grid-cols-3"
       >
         {data.projects.map((project, index) => (
           <ProjectCard key={project.name} project={project} i={index} view={entered} />
