@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
 import PerspectiveCard from "./perspectiveCard";
@@ -13,9 +14,8 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
   console.log(mobileHeight);
   return (
     <main
-      className={`relative flex w-screen flex-col items-center justify-center md:h-screen ${
-        "h-[" + mobileHeight + "px]"
-      }`}
+      className={`relative flex w-screen flex-col items-center justify-center`}
+      style={{ height: mobileHeight ? mobileHeight : "100vh" }}
     >
       {/* Blurred purple */}
       <motion.div
@@ -45,7 +45,7 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
         onClick={() => handleClick()}
         onTap={() => handleClick()}
         style={{ WebkitTapHighlightColor: "transparent" }}
-        className={`absolute bottom-10 left-1/2 z-20 aspect-square h-8 rounded-xl md:bottom-4`}
+        className={`absolute bottom-10 left-1/2 z-0 aspect-square h-8 rounded-xl md:bottom-4`}
       >
         <DownArrow className="animate-bounce cursor-pointer fill-beige-300/90 brightness-75" />
       </motion.div>

@@ -96,7 +96,7 @@ const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div className="mx-auto flex w-full flex-col justify-between gap-8 pb-32 pt-10" ref={ref}>
+    <div className="mx-auto flex w-full flex-col justify-between gap-8 pb-24 pt-10" ref={ref}>
       <InView
         as="div"
         onChange={(inView, entry) => {
