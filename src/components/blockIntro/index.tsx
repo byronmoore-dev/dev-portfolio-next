@@ -68,15 +68,16 @@ const IntroBlock = forwardRef<HTMLDivElement>((_, ref) => {
           Hi, I'm Byron. I bring ideas to life.
         </motion.h1>
 
-        <motion.p
+        <motion.h6
           initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.55, duration: 0.25 }}
           viewport={{ once: true }}
           className="z-20 mx-auto mt-3 max-w-2xl text-center font-head text-xl text-beige-800 md:text-2xl md:leading-9"
         >
-          My current passions? A small SasS product, creating online content, and my own indie game.
-        </motion.p>
+          Currently, I'm passionate about developing a compact Software as a Service (SaaS) product,
+          delving into the world of content creation, and crafting my very own indie game.
+        </motion.h6>
       </div>
       <div className="flex w-screen flex-col items-center justify-center gap-2">
         <div className="flex h-20 gap-2">

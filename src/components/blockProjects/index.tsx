@@ -132,18 +132,18 @@ const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
             viewport={{ once: true }}
             className="z-10 w-full text-center font-head text-3xl font-bold text-black md:text-3xl"
           >
-            My Startup Projects
+            My Ventures
           </motion.h1>
-          <motion.p
+          <motion.h6
             initial={{ x: 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.25 }}
             viewport={{ once: true }}
             className="z-10 mx-auto mt-4 w-5/6 max-w-xl text-center font-head text-xl font-medium text-beige-800 md:w-auto"
           >
-            I really love making digital stuff. From the first design sketch to the thrill of going
-            live, it's all a blast. Below are some of my favorites!
-          </motion.p>
+            Crafting digital solutions is my passion. From idea to launch, each step is thrilling.
+            Below are some projects I've enjoyed developing.
+          </motion.h6>
         </div>
       </InView>
       <motion.div

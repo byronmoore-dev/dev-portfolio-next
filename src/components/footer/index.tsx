@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="relative mt-28 flex w-full flex-col-reverse items-center border-t-[1.5px] border-beige-100 px-12 py-6 md:flex-row  ">
       <div className="flex cursor-default flex-col">
         <div className="mb-1 h-[3px] w-32 rounded-xl bg-beige-300 brightness-75 md:w-48" />
-        <p className="md-text-left text-center font-base text-base font-medium text-beige-300 brightness-[60%]">
+        <p className="md-text-left text-center font-base text-base font-medium text-beige-300 brightness-[60%] md:text-left">
           Byron Moore
         </p>
       </div>

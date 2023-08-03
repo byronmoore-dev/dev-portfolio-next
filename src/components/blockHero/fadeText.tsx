@@ -15,7 +15,7 @@ export const WordCycle: React.FC<WordCycleProps> = ({ words }) => {
   }, [words]);
 
   return (
-    <motion.p
+    <motion.h1
       key={index}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -24,6 +24,6 @@ export const WordCycle: React.FC<WordCycleProps> = ({ words }) => {
       className="w-full text-center font-semibold text-3xl text-beige-300 brightness-75 font-head"
     >
       {words[index]}
-    </motion.p>
+    </motion.h1>
   );
 };
