@@ -20,8 +20,50 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://byronjaris.com"),
   title: "Byron Jaris Development",
-  description: "GM",
+  description:
+    "Meet Byron, a prolific creator and developer specializing in Next.js, UI design, and web applications. Discover his unique blend of technical expertise and creativity, powering innovative digital solutions in the tech landscape.",
+
+  viewport: "width=device-width, initial-scale=1",
+  robots: "index, follow",
+  keywords: "developer, creator, application, indiehacker, builder, content creator",
+  themeColor: "#e9e1d9",
+  manifest: "/site.webmanifest",
+  category: "technology",
+  icons: {
+    icon: [
+      { type: "image/png", sizes: "16x16", url: "/favicon-16x16.png" },
+      { type: "image/png", sizes: "32x32", url: "/favicon-32x32.png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    other: {
+      url: "/safari-pinned-tab.svg",
+    },
+  },
+  openGraph: {
+    title: "Portfolio | Byron Moore",
+    description: "Meet Byron, a prolific creator and developer.",
+    url: "https://byronjaris.com",
+    siteName: "Portfolio | Byron Moore",
+    images: [
+      {
+        url: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-photo-portfolio/misc/meta-image.jpg",
+        width: 941,
+        height: 627,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | Byron Moore",
+    description: "Meet Byron, a prolific creator and developer.",
+    images: [
+      "https://s3.us-east-2.amazonaws.com/byronmoore.dev-photo-portfolio/misc/meta-image.jpg",
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
