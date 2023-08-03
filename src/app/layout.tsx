@@ -21,21 +21,41 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://byronjaris.com"),
-  title: "Byron Jaris Development",
+
+  generator: "Next.js",
+  applicationName: "Dev Portfolio | Byron Moore",
+  referrer: "origin-when-cross-origin",
+  authors: [{ name: "Byron Moore" }],
+  colorScheme: "light",
+  creator: "Byron Moore",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+
+  title: "Dev Portfolio | Byron Moore",
   description:
     "Meet Byron, a prolific creator and developer specializing in Next.js, UI design, and web applications. Discover his unique blend of technical expertise and creativity, powering innovative digital solutions in the tech landscape.",
 
   viewport: "width=device-width, initial-scale=1",
-  robots: "index, follow",
-  keywords: "developer, creator, application, indiehacker, builder, content creator",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+    },
+  },
+  keywords: "developer,creator,application,indiehacker,builder,content creator",
   themeColor: "#e9e1d9",
   manifest: "/site.webmanifest",
   category: "technology",
   icons: {
-    icon: [
-      { type: "image/png", sizes: "16x16", url: "/favicon-16x16.png" },
-      { type: "image/png", sizes: "32x32", url: "/favicon-32x32.png" },
-    ],
+    icon: "/favicon-32x32.png",
     apple: "/apple-touch-icon.png",
     other: {
       url: "/safari-pinned-tab.svg",
