@@ -27,7 +27,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${noto_sans.variable} ${montserrat.variable}`}>{children}</body>
+      <body
+        className={`${noto_sans.variable} ${montserrat.variable}`}
+        style={{ backgroundColor: "#e9e1d9" }}
+      >
+        {children}
+      </body>
     </html>
   );
 }

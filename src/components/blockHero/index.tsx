@@ -45,7 +45,7 @@ export default function HeroBlock({ handleClick }: { handleClick: () => void }) 
         onClick={() => handleClick()}
         onTap={() => handleClick()}
         style={{ WebkitTapHighlightColor: "transparent" }}
-        className={`absolute bottom-10 left-1/2 z-0 aspect-square h-8 rounded-xl md:bottom-4`}
+        className={`absolute bottom-4 left-1/2 z-10 aspect-square h-8 rounded-xl`}
       >
         <DownArrow className="animate-bounce cursor-pointer fill-beige-300/90 brightness-75" />
       </motion.div>
