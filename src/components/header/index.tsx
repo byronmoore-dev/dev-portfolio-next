@@ -1,14 +1,6 @@
 "use client";
-
-import React, { forwardRef, RefObject, ForwardedRef } from "react";
+import React, { forwardRef } from "react";
 import HamburgerMenu from "../menu";
-
-interface HeaderProps {
-  refs: {
-    skillRef: RefObject<HTMLDivElement>;
-    projectRef: RefObject<HTMLDivElement>;
-  };
-}
 
 const Header = forwardRef((_, ref: any) => {
   const { skillsRef, projectsRef } = ref.current;
@@ -27,10 +19,13 @@ const Header = forwardRef((_, ref: any) => {
     <>
       <HamburgerMenu handleScroll={handleScroll} />
 
-      <header className="absolute top-0 z-10 flex w-full flex-col items-center justify-center px-4 pt-4">
+      <header
+        className="absolute top-0 z-10 flex w-full flex-col items-center justify-center px-4 pt-4"
+        id="header"
+      >
         <div className="flex w-full gap-8 ">
           <div className="flex cursor-default flex-col">
-            <div className="mb-1 h-1 w-32 rounded-xl bg-beige-300 md:w-48" />
+            <div className="mb-1 h-[3px] w-32 rounded-xl bg-beige-300 brightness-75 md:w-48" />
             <p className="font-base text-sm font-medium text-beige-300 brightness-[60%]">
               Byron Moore
             </p>
@@ -39,7 +34,7 @@ const Header = forwardRef((_, ref: any) => {
             onClick={() => handleScroll("projects")}
             className="ml-auto hidden cursor-pointer flex-col md:flex"
           >
-            <div className="mb-1 h-1 w-48 rounded-xl bg-beige-300" />
+            <div className="mb-1 h-[3px] w-48 rounded-xl bg-beige-300 brightness-75" />
             <p className="font-base text-sm font-medium text-beige-300 brightness-[60%]">
               Projects
             </p>
@@ -51,7 +46,7 @@ const Header = forwardRef((_, ref: any) => {
             target="new_blank"
             className="hidden cursor-pointer flex-col md:flex"
           >
-            <div className="mb-1 h-1 w-48 rounded-xl bg-beige-300" />
+            <div className="mb-1 h-[3px] w-48 rounded-xl bg-beige-300 brightness-75" />
             <p className="font-base text-sm font-medium text-beige-300 brightness-[60%]">
               Photography
             </p>

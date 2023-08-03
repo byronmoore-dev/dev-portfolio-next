@@ -31,27 +31,39 @@ const SkillCard = ({ skill, i }: { skill: SkillProps; i: number }) => {
         viewport={{ once: true }}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="relative flex flex-col justify-center items-center w-full aspect-square md:aspect-[9/3]"
+        className="relative flex aspect-square w-full flex-col items-center justify-center md:aspect-[9/3]"
       >
         <motion.div
-          animate={{ y: isHover ? -10 : 0, opacity: isHover ? 0 : 1, transition: { delay: isHover ? 0 : 0.15, duration: 0.2 } }}
-          className="absolute h-full w-full flex justify-center items-center"
+          animate={{
+            y: isHover ? -10 : 0,
+            opacity: isHover ? 0 : 1,
+            transition: { delay: isHover ? 0 : 0.15, duration: 0.2 },
+          }}
+          className="absolute flex h-full w-full items-center justify-center"
         >
           <Image
             src={skill.logo}
             height="100"
             width="100"
             alt={`${skill.name} logo`}
-            className={`${skill.size == "xs" ? "w-36 md:w-32 h-auto" : ""} ${skill.size == "sm" ? "w-18 md:w-16 h-auto" : ""} ${
-              skill.size == "md" ? "w-14 md:w-[52px] h-auto" : ""
-            } ${skill.size == "lg" ? "w-12 md:w-9 h-auto" : ""}`}
+            className={`${skill.size == "xs" ? "h-auto w-36 md:w-32" : ""} ${
+              skill.size == "sm" ? "w-18 h-auto md:w-16" : ""
+            } ${skill.size == "md" ? "h-auto w-14 md:w-[52px]" : ""} ${
+              skill.size == "lg" ? "h-auto w-12 md:w-9" : ""
+            }`}
           />
         </motion.div>
         <motion.div
-          animate={{ y: !isHover ? -10 : 0, opacity: !isHover ? 0 : 1, transition: { delay: !isHover ? 0 : 0.15, duration: 0.2 } }}
-          className="absolute h-full w-full flex justify-center items-center"
+          animate={{
+            y: !isHover ? -10 : 0,
+            opacity: !isHover ? 0 : 1,
+            transition: { delay: !isHover ? 0 : 0.15, duration: 0.2 },
+          }}
+          className="absolute flex h-full w-full items-center justify-center"
         >
-          <p className="text-beige-800 text-lg font-medium text-center font-base leading-5">{skill.name}</p>
+          <p className="text-center font-head text-xl font-semibold leading-5 text-beige-300 brightness-75">
+            {skill.name}
+          </p>
         </motion.div>
       </motion.li>
     </InView>
@@ -60,13 +72,13 @@ const SkillCard = ({ skill, i }: { skill: SkillProps; i: number }) => {
 
 const SkillsBlock = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="w-full pt-32 pb-48" ref={ref}>
+    <div className="w-full pb-40 pt-10" ref={ref}>
       <motion.h1
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.25 }}
         viewport={{ once: true }}
-        className="w-full text-3xl font-semibold text-beige-800 text-center font-head mb-10"
+        className="mb-10 w-full text-center font-head text-3xl font-semibold text-beige-800"
       >
         Here's how I cook up products.
       </motion.h1>
@@ -75,7 +87,7 @@ const SkillsBlock = forwardRef<HTMLDivElement>((_, ref) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="grid grid-cols-2 px-6 sm:max-w-xl sm:grid-cols-3 lg:grid-cols-3 lg:max-w-[800px] max-w-[85%] mx-auto md:gap-8"
+        className="mx-auto grid max-w-[85%] grid-cols-2 px-6 sm:max-w-xl sm:grid-cols-3 md:gap-8 lg:max-w-[800px] lg:grid-cols-3"
       >
         {data.skills.map((skill: any, index: number) => (
           <SkillCard key={skill.name} skill={skill} i={index} />

@@ -10,13 +10,13 @@ import AnimatedCircles from "@/components/animatedCircles";
 
 export default function HeroBlock({ handleClick }: { handleClick: () => void }) {
   const mobileHeight = use100vh();
+  console.log(mobileHeight);
   return (
     <main
       className={`relative flex w-screen flex-col items-center justify-center md:h-screen ${
         "h-[" + mobileHeight + "px]"
       }`}
     >
-
       {/* Blurred purple */}
       <motion.div
         initial={{ opacity: 0 }}

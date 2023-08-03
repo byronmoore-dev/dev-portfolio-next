@@ -56,16 +56,16 @@ const DotAnims = () => {
 
 const IntroBlock = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="relative h-screen w-full" ref={ref}>
-      <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 ">
+    <div className="relative my-20 w-full py-20" ref={ref}>
+      <div className="absolute left-1/2 top-1/2 z-20 w-5/6 -translate-x-1/2 -translate-y-1/2 md:w-auto">
         <motion.h1
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.25 }}
           viewport={{ once: true }}
-          className="z-20 hidden text-center font-head text-3xl  font-semibold text-beige-800"
+          className="z-20 text-center font-head text-3xl font-semibold text-beige-800"
         >
-          Hi, I'm Byron. Nice to meet you.
+          Hi, I'm Byron. I bring ideas to life.
         </motion.h1>
 
         <motion.p
@@ -73,13 +73,12 @@ const IntroBlock = forwardRef<HTMLDivElement>((_, ref) => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.55, duration: 0.25 }}
           viewport={{ once: true }}
-          className="z-20 mx-auto mt-2 max-w-2xl text-center font-head text-2xl text-beige-800"
+          className="z-20 mx-auto mt-3 max-w-2xl text-center font-head text-xl text-beige-800 md:text-2xl md:leading-9"
         >
-          As a developer and designer, I bring ideas to life. I'm working on product development,
-          content creation, and my own indie game.
+          My current passions? A small SasS product, creating online content, and my own indie game.
         </motion.p>
       </div>
-      <div className="flex h-screen w-screen flex-col items-center justify-center gap-2">
+      <div className="flex w-screen flex-col items-center justify-center gap-2">
         <div className="flex h-20 gap-2">
           <Anim count={40} decreateRate={9} />
         </div>

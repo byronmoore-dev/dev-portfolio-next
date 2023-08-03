@@ -13,7 +13,7 @@ const data = {
   projects: [
     {
       name: "Pivello",
-      desc: "Rewarding fan engagement on Twitter via rewards, empowering authentic interactions.",
+      desc: "Rewarded fan interactions on Twitter via rewards.",
       logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/pivello-logo.png",
       video: "https://youtu.be/zmEAvEKF8qg",
       status: "depreceated.",
@@ -22,7 +22,7 @@ const data = {
     },
     {
       name: "Solspot",
-      desc: "A social identity platform on the blockchain, providing users with a personalized and secure on-chain footprint.",
+      desc: "Social identity app providing users with a personalized and secure on-chain profile.",
       logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/solspot-logo.png",
       video: "https://youtu.be/-qc7P3xyU2M",
       status: "live.",
@@ -40,7 +40,7 @@ const data = {
     },
     {
       name: "My Gamer Timeline",
-      desc: "A timeline showcasing my personal gaming history.",
+      desc: "A timeline showcasing my personal gaming history in an interactive way.",
       logo: null,
       video: null,
       status: "in development.",
@@ -49,7 +49,7 @@ const data = {
     },
     {
       name: "Nexuz",
-      desc: "Nexuz is your singular link to create, showcase, and share your online ventures with the world.",
+      desc: "Your singular link to create, showcase, and share your online ventures with the world.",
       logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/nexuz_logo.png",
       video: "https://youtu.be/6fkm0NLFF3c",
       status: "live.",

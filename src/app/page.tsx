@@ -8,6 +8,7 @@ import ProjectsBlock from "@/components/blockProjects";
 import SkillsBlock from "@/components/blockSkills";
 import IntroBlock from "@/components/blockIntro";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function Page() {
   const introRef = useRef<HTMLDivElement>(null);
@@ -16,7 +17,9 @@ export default function Page() {
   const headerRef = useRef({ skillsRef, projectsRef });
 
   const handleClick = () => {
-    introRef.current?.scrollIntoView({ behavior: "smooth" });
+    introRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -49,6 +52,7 @@ export default function Page() {
         <IntroBlock ref={introRef} />
         <SkillsBlock ref={skillsRef} />
         <ProjectsBlock ref={projectsRef} />
+        <Footer />
       </main>
     </>
   );

@@ -15,7 +15,7 @@ export default function MobileAnim() {
     >
       {/*Inside */}
       <motion.section className="z-10 flex h-full w-full flex-col justify-center overflow-hidden rounded-lg bg-white/60 p-4">
-        <WordCycle words={["dev.", "creator.", "innovator.", "designer."]} />
+        <WordCycle words={["dev.", "creator.", "innovator.", "designer.", "indiehacker."]} />
       </motion.section>
 
       {/* Top Side */}
