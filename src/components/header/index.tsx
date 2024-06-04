@@ -41,7 +41,7 @@ const Header = forwardRef((_, ref: any) => {
           </div>
 
           <a
-            href="https://photography.byronjaris.com"
+            href="https://photography.byronmoore.dev"
             rel="noopener noreferrer"
             target="new_blank"
             className="hidden cursor-pointer flex-col md:flex"

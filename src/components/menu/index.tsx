@@ -141,7 +141,7 @@ const MobileDrawer = ({
         <NavLink handleScroll={handleScroll} label="Projects" setIsOpen={setIsOpen} />
         <div className="mx-auto h-[2px] w-[75%] rounded-lg bg-beige-300" />{" "}
         <a
-          href="https://photography.byronjaris.com"
+          href="https://photography.byronmoore.dev"
           rel="noopener noreferrer"
           target="new_blank"
           className={`relative my-1 ml-6 flex cursor-pointer select-none items-center py-3 pl-4`}

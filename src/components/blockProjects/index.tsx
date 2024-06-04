@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { forwardRef, useState } from "react";
 import data from "@/assets/data.js";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 
@@ -109,7 +108,7 @@ const ProjectsBlock = forwardRef<HTMLDivElement>((_, ref) => {
         <div className="relative z-0 flex w-full flex-col justify-center pb-48 pt-24">
           {/* */}
           <div className="absolute top-0 z-0 grid h-full w-full grid-rows-5 items-center gap-2 overflow-hidden">
-            <div className="flex h-full w-full gap-2">
+            <div className="flex h-full w-full gap-2 md:flex-wrap">
               <Anim count={14} />
             </div>
             <div className="flex h-full gap-2">

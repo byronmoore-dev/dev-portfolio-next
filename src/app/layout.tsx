@@ -20,7 +20,7 @@ const montserrat = Montserrat({
 });
 export const metadata: Metadata = {
   // Base and General Info
-  metadataBase: new URL("https://byronjaris.com"),
+  metadataBase: new URL("https://byronmoore.dev"),
   generator: "Next.js",
   applicationName: "Dev Portfolio | Byron Moore",
   title: "Dev Portfolio | Byron Moore",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Portfolio | Byron Moore",
     description: "Meet Byron, a prolific creator and developer.",
-    url: "https://byronjaris.com",
+    url: "https://byronmoore.dev",
     siteName: "Portfolio | Byron Moore",
     images: [
       {

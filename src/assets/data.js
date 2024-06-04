@@ -1,14 +1,50 @@
 const data = {
   skills: [
-    { name: "React", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/react.png", size: "sm" },
-    { name: "Next Js", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/next.png", size: "sm" },
-    { name: "Tailwind", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/tailwindcss.png", size: "sm" },
-    { name: "AWS", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/aws.png", size: "sm" },
-    { name: "Figma", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/figma.png", size: "lg" },
-    { name: "Adobe", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/adobe.png", size: "md" },
-    { name: "Python", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/python.png", size: "md" },
-    { name: "Vercel", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/vercel.png", size: "xs" },
-    { name: "Framer Motion", logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/framer.png", size: "sm" },
+    {
+      name: "React",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/react.png",
+      size: "sm",
+    },
+    {
+      name: "Next Js",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/next.png",
+      size: "sm",
+    },
+    {
+      name: "Tailwind",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/tailwindcss.png",
+      size: "sm",
+    },
+    {
+      name: "AWS",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/aws.png",
+      size: "sm",
+    },
+    {
+      name: "Figma",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/figma.png",
+      size: "lg",
+    },
+    {
+      name: "Adobe",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/adobe.png",
+      size: "md",
+    },
+    {
+      name: "Python",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/python.png",
+      size: "md",
+    },
+    {
+      name: "Vercel",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/vercel.png",
+      size: "xs",
+    },
+    {
+      name: "Framer Motion",
+      logo: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/logos/framer.png",
+      size: "sm",
+    },
   ],
   projects: [
     {
@@ -36,7 +72,7 @@ const data = {
       video: null,
       status: "live.",
       github: "https://github.com/lowkeygalactic/photography-portfolio-next",
-      url: "https://photography.byronjaris.com",
+      url: "https://photography.byronmoore.dev",
     },
     {
       name: "My Gamer Timeline",

@@ -23,7 +23,7 @@ export default function Footer() {
         </li>
 
         <a
-          href="https://photography.byronjaris.com"
+          href="https://photography.byronmoore.dev"
           rel="noopener noreferrer"
           target="new_blank"
           className="cursor-pointer flex-col md:flex"
