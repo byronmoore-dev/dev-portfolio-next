@@ -9,6 +9,7 @@ import SkillsBlock from "@/components/blockSkills";
 import IntroBlock from "@/components/blockIntro";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import ProjectsDetailedBlock from "@/components/projects";
 
 export default function Page() {
   const introRef = useRef<HTMLDivElement>(null);
@@ -50,8 +51,8 @@ export default function Page() {
         <Header ref={headerRef} />
         <HeroBlock handleClick={handleClick} />
         <IntroBlock ref={introRef} />
+        <ProjectsDetailedBlock />
         <SkillsBlock ref={skillsRef} />
-        <ProjectsBlock ref={projectsRef} />
         <Footer />
       </main>
     </>

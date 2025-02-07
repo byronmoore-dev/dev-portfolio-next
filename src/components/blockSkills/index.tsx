@@ -72,7 +72,7 @@ const SkillCard = ({ skill, i }: { skill: SkillProps; i: number }) => {
 
 const SkillsBlock = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="w-full pb-40 pt-10" ref={ref}>
+    <div className="w-full pb-28 pt-10 xl:pb-40" ref={ref}>
       <motion.h1
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
@@ -80,7 +80,7 @@ const SkillsBlock = forwardRef<HTMLDivElement>((_, ref) => {
         viewport={{ once: true }}
         className="mb-10 w-full text-center font-head text-3xl font-semibold text-beige-800"
       >
-        Here's how I cook up products.
+        Skills to cook.
       </motion.h1>
 
       <motion.ul
