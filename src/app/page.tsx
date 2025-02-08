@@ -51,7 +51,7 @@ export default function Page() {
         <Header ref={headerRef} />
         <HeroBlock handleClick={handleClick} />
         <IntroBlock ref={introRef} />
-        <ProjectsDetailedBlock />
+        <ProjectsDetailedBlock ref={projectsRef} />
         <SkillsBlock ref={skillsRef} />
         <Footer />
       </main>

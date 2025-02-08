@@ -7,6 +7,9 @@ import React, { forwardRef, useEffect, useRef, useState } from "react";
 import data from "@/assets/data.js";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
+import { useBreakpoint } from "use-breakpoint";
+
+const BREAKPOINTS = { mobile: 0, tablet: 768, desktop: 1024 };
 
 const ProjectCard = ({
   project,
@@ -20,6 +23,7 @@ const ProjectCard = ({
   currentSlide: number;
 }) => {
   const [isHover, setIsHover] = useState<boolean>(false);
+  const { breakpoint: bp } = useBreakpoint(BREAKPOINTS, "desktop");
 
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -43,7 +47,7 @@ const ProjectCard = ({
       videoRef.current?.load(); // Reset video when inactive
     }
   }, [currentSlide]);
-
+  console.log(bp);
   return (
     <div
       onMouseEnter={() => handleSetHover()}
@@ -59,14 +63,14 @@ const ProjectCard = ({
           }`}
         >
           <h4
-            className={`text-left font-head text-2xl font-bold ${
+            className={`text-left font-head text-sm font-bold md:text-2xl ${
               project.videoTheme === "light" ? "text-black" : "text-white"
             }`}
           >
             {project.name}
           </h4>
           <p
-            className={`mt-1 max-w-md text-left font-base text-sm leading-4 ${
+            className={`max-w-md text-left font-base text-[10px] md:mt-1 md:text-sm md:leading-4 ${
               project.videoTheme === "light" ? "text-black" : "text-white"
             }`}
           >
@@ -77,9 +81,11 @@ const ProjectCard = ({
           animate={{ y: isHover ? -10 : 0, opacity: isHover ? 0 : 1 }}
           className="absolute bottom-3 right-5"
         >
-          <p className="rounded bg-beige-700 px-2 py-1 font-base text-xs font-bold text-beige-300">
-            {project.status}
-          </p>
+          {project.status !== "deprecated." || bp !== "mobile" ? (
+            <p className="rounded bg-beige-700 px-2 py-1 font-base text-xs font-bold text-beige-300">
+              {project.status}
+            </p>
+          ) : null}
         </motion.div>
         <motion.div
           animate={{ y: !isHover ? 10 : 0, opacity: !isHover ? 0 : 1 }}
@@ -113,6 +119,10 @@ const ProjectCard = ({
           className="absolute -top-[2px] left-0 z-0 h-full w-full scale-[102%] select-none"
           muted
           loop
+          playsInline
+          disablePictureInPicture
+          onClick={(e) => e.preventDefault()} // Prevents default fullscreen behavior on some browsers
+          onTouchStart={(e) => e.preventDefault()}
         />
       )}
     </div>
@@ -177,7 +187,7 @@ const ProjectsDetailedBlock = forwardRef<HTMLDivElement>((_, ref) => {
       >
         <div className="flex w-full flex-col items-center justify-center xl:flex-row">
           {/* Info Content */}
-          <div className="relative flex w-full flex-col items-center pb-8 xl:w-[400px] xl:items-start xl:pr-12">
+          <div className="relative flex w-full flex-col items-center pb-8 xl:w-[400px] xl:items-start xl:pr-8">
             <motion.h1
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -218,7 +228,7 @@ const ProjectsDetailedBlock = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
 
           {/* Carousel Content */}
-          <div className="flex w-full flex-col gap-8 px-8 xl:w-[700px] xl:px-0">
+          <div className="flex w-full flex-col gap-8 px-2 lg:w-[850px] xl:px-0">
             <div className="flex w-full flex-col">
               <div ref={sliderRef} className="keen-slider">
                 {data.projects.map((project, index) => (

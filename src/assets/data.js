@@ -86,7 +86,7 @@ const data = {
       logo: null,
       video: null,
       videoTheme: "dark",
-      status: "deprliveeceated.",
+      status: "deprecated.",
       github: null,
       url: null,
       year: 2024,
