@@ -57,13 +57,13 @@ const DotAnims = () => {
 const IntroBlock = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <div className="relative my-20 w-full py-20" ref={ref}>
-      <div className="absolute left-1/2 top-1/2 z-20 w-5/6 -translate-x-1/2 -translate-y-1/2 md:w-auto">
+      <div className="absolute left-1/2 top-1/2 z-20 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col">
         <motion.h1
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.25 }}
           viewport={{ once: true }}
-          className="z-20 text-center font-head text-3xl font-semibold text-beige-800"
+          className="z-20 px-2 text-center font-head text-2xl font-semibold text-beige-800  md:px-0 md:text-3xl"
         >
           Hi, I'm Byron. I bring ideas to life.
         </motion.h1>
@@ -73,10 +73,11 @@ const IntroBlock = forwardRef<HTMLDivElement>((_, ref) => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.55, duration: 0.25 }}
           viewport={{ once: true }}
-          className="z-20 mx-auto mt-3 max-w-2xl text-center font-head text-xl text-beige-800 md:text-2xl md:leading-9"
+          className="z-20 mx-auto mt-3 max-w-3xl px-2 text-center font-head text-lg text-beige-800 md:px-0 md:text-2xl md:leading-9"
         >
-          Currently, I'm passionate about developing a compact Software as a Service (SaaS) product,
-          delving into the world of content creation, and crafting my very own indie game.
+          I’m a Frontend Engineer who specializes in turning ideas into high-quality, user-friendly
+          digital experiences. Whether it’s a web app, mobile platform, or interactive dashboard, I
+          focus on delivering clean, scalable, and intuitive interfaces.
         </motion.h6>
       </div>
       <div className="flex w-screen flex-col items-center justify-center gap-2">

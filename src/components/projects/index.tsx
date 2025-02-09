@@ -3,7 +3,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
 /* eslint-disable react/no-unescaped-entities */
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import data from "@/assets/data.js";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
@@ -25,9 +25,15 @@ const ProjectCard = ({
   const [isHover, setIsHover] = useState<boolean>(false);
   const { breakpoint: bp } = useBreakpoint(BREAKPOINTS, "desktop");
 
-  const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const isPlaying = i === currentSlide;
+
+  const videoSrc = useMemo(() => {
+    if (currentSlide === i + 1 || currentSlide === i - 1 || currentSlide === i) {
+      return project.video;
+    }
+    return null;
+  }, [currentSlide, i, project.video]);
 
   const handleSetHover = () => {
     if (!project.url && !project.github) return;
@@ -35,24 +41,88 @@ const ProjectCard = ({
   };
 
   useEffect(() => {
-    if (currentSlide === i + 1 || currentSlide === i - 1 || currentSlide === i) {
-      if (!videoRef) return;
-      setVideoSrc(project.video);
-    }
+    if (!videoRef.current) return;
 
     if (isPlaying) {
-      videoRef.current?.play();
+      if (videoRef.current.readyState >= 2) {
+        // Check if already loaded
+        videoRef.current.play();
+      }
     } else {
-      videoRef.current?.pause(); // Pause when inactive
-      videoRef.current?.load(); // Reset video when inactive
+      videoRef.current.pause();
     }
-  }, [currentSlide]);
-  console.log(bp);
+  }, [currentSlide, isPlaying]);
+
+  if (bp === "mobile") {
+    return (
+      <div
+        onMouseEnter={() => handleSetHover()}
+        onMouseLeave={() => setIsHover(false)}
+        className={`keen-slider__slide number-slide flex-direction relative z-50 flex h-auto flex-col items-start justify-start px-2`}
+      >
+        <div className="relative z-10 flex h-full w-full flex-row items-start ">
+          <div className="flex w-full flex-col bg-gradient-to-t p-4">
+            <h4 className="text-left font-head text-2xl font-bold text-black">{project.name}</h4>
+            <p className="text-medium max-w-md text-left font-base text-black">{project.desc}</p>
+          </div>
+        </div>
+
+        <motion.div
+          animate={{ y: isHover ? -10 : 0, opacity: isHover ? 0 : 1 }}
+          className="absolute bottom-3 right-5"
+        >
+          {project.status !== "deprecated." || bp !== "mobile" ? (
+            <p className="rounded bg-beige-700 px-2 py-1 font-base text-xs font-bold text-beige-300">
+              {project.status}
+            </p>
+          ) : null}
+        </motion.div>
+        <motion.div
+          animate={{ y: !isHover ? 10 : 0, opacity: !isHover ? 0 : 1 }}
+          className="absolute bottom-5 right-5 flex gap-3"
+        >
+          {project.url && (
+            <a
+              href={project.url}
+              target="new_blank"
+              className="z-10 rounded bg-beige-300 px-3 py-1 font-base text-xs font-bold text-beige-700 duration-200 hover:bg-beige-700 hover:text-white"
+            >
+              site
+            </a>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="new_blank"
+              className="z-10 rounded bg-beige-300 px-3 py-1 font-base text-xs font-bold text-beige-700 duration-200 hover:bg-beige-700 hover:text-white"
+            >
+              github
+            </a>
+          )}
+        </motion.div>
+
+        {videoSrc && (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            className="relative z-0 aspect-[16/9] h-full w-full select-none rounded-[16px] bg-beige-200"
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            onClick={(e) => e.preventDefault()} // Prevents default fullscreen behavior on some browsers
+            onTouchStart={(e) => e.preventDefault()}
+          />
+        )}
+      </div>
+    );
+  }
+
   return (
     <div
       onMouseEnter={() => handleSetHover()}
       onMouseLeave={() => setIsHover(false)}
-      className={`keen-slider__slide number-slide relative z-50 aspect-[16/9]  bg-beige-200`}
+      className={`keen-slider__slide number-slide relative z-50 aspect-[16/9] bg-beige-200`}
     >
       <div className="relative z-10 flex h-full w-full flex-row items-end ">
         <div
@@ -81,7 +151,7 @@ const ProjectCard = ({
           animate={{ y: isHover ? -10 : 0, opacity: isHover ? 0 : 1 }}
           className="absolute bottom-3 right-5"
         >
-          {project.status !== "deprecated." || bp !== "mobile" ? (
+          {project.status !== "deprecated." ? (
             <p className="rounded bg-beige-700 px-2 py-1 font-base text-xs font-bold text-beige-300">
               {project.status}
             </p>
@@ -116,7 +186,7 @@ const ProjectCard = ({
         <video
           ref={videoRef}
           src={videoSrc}
-          className="absolute -top-[2px] left-0 z-0 h-full w-full scale-[102%] select-none"
+          className="absolute -top-[2px] left-0 z-0 h-full w-full scale-[102%] select-none bg-beige-200"
           muted
           loop
           playsInline
@@ -228,7 +298,7 @@ const ProjectsDetailedBlock = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
 
           {/* Carousel Content */}
-          <div className="flex w-full flex-col gap-8 px-2 lg:w-[850px] xl:px-0">
+          <div className="flex w-full flex-col gap-8 sm:px-4 lg:w-[850px]">
             <div className="flex w-full flex-col">
               <div ref={sliderRef} className="keen-slider">
                 {data.projects.map((project, index) => (

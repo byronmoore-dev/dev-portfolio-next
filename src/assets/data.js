@@ -54,7 +54,7 @@ const data = {
       video: "https://s3.us-east-2.amazonaws.com/byronmoore.dev-portfolio/videos/solspot.mp4",
       videoTheme: "dark",
       status: "deprecated.",
-      github: "https://github.com/solspot/solspot-client",
+      github: null,
       url: null,
       year: 2022,
     },

@@ -31,7 +31,7 @@ const SkillCard = ({ skill, i }: { skill: SkillProps; i: number }) => {
         viewport={{ once: true }}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="relative flex aspect-square w-full flex-col items-center justify-center md:aspect-[9/3]"
+        className="relative flex aspect-square w-full cursor-default flex-col items-center justify-center md:aspect-[9/3]"
       >
         <motion.div
           animate={{
@@ -61,7 +61,7 @@ const SkillCard = ({ skill, i }: { skill: SkillProps; i: number }) => {
           }}
           className="absolute flex h-full w-full items-center justify-center"
         >
-          <p className="text-center font-head text-xl font-semibold leading-5 text-beige-300 brightness-75">
+          <p className="cursor-default text-center  font-head text-xl font-semibold leading-5 text-beige-300 brightness-75">
             {skill.name}
           </p>
         </motion.div>
@@ -72,15 +72,15 @@ const SkillCard = ({ skill, i }: { skill: SkillProps; i: number }) => {
 
 const SkillsBlock = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="w-full pb-28 pt-10 xl:pb-40" ref={ref}>
+    <div className="w-full pb-8 pt-10 xl:pb-40" ref={ref}>
       <motion.h1
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.25 }}
         viewport={{ once: true }}
-        className="mb-10 w-full text-center font-head text-3xl font-semibold text-beige-800"
+        className="mb-10 w-full cursor-default select-none text-center font-head text-3xl font-semibold text-beige-800"
       >
-        Skills to cook.
+        Tools I use to cook.
       </motion.h1>
 
       <motion.ul
